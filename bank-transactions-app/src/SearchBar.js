@@ -1,4 +1,4 @@
-// src/components/SearchBar.js
+// src/SearchBar.js
 
 import React from 'react';
 

@@ -1,10 +1,10 @@
 // src/App.js
 
 import React, { useState, useEffect } from 'react';
-import { fetchTransactions } from './utils/api';
-import TransactionTable from './components/TransactionTable';
-import SearchBar from './components/SearchBar';
-import AddTransactionForm from './components/AddTransactionForm';
+import { fetchTransactions } from './api';
+import TransactionTable from './TransactionTable';
+import SearchBar from './SearchBar';
+import AddTransactionForm from './TransactionForm';
 
 const App = () => {
   const [transactions, setTransactions] = useState([]);

@@ -1,4 +1,4 @@
-// src/components/TransactionTable.js
+// src/TransactionTable.js
 
 import React from 'react';
 

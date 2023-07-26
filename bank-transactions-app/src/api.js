@@ -1,4 +1,4 @@
-// src/utils/api.js
+// src/api.js
 
 const BASE_URL = 'http://localhost:8001';
 
