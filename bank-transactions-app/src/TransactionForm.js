@@ -18,7 +18,7 @@ const AddTransactionForm = ({ onSubmit }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     onSubmit(formData);
-    // Reset the form after submission (optional)
+    // Reset the form after submission 
     setFormData({ date: '', description: '', category: '', amount: '' });
   };
 

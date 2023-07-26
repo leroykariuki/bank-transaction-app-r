@@ -1,7 +1,6 @@
 // src/App.js
 
 import React, { useState, useEffect } from 'react';
-import { fetchTransactions } from './api';
 import TransactionTable from './TransactionTable';
 import SearchBar from './SearchBar';
 import AddTransactionForm from './TransactionForm';
@@ -11,13 +10,22 @@ const App = () => {
   const [filteredTransactions, setFilteredTransactions] = useState([]);
 
   useEffect(() => {
-    const fetchData = async () => {
-      const data = await fetchTransactions();
+    fetchTransactions();
+  }, []);
+
+  const fetchTransactions = async () => {
+    try {
+      const response = await fetch('http://localhost:3001/transactions');
+      if (!response.ok) {
+        throw new Error('Network response was not ok.');
+      }
+      const data = await response.json();
       setTransactions(data);
       setFilteredTransactions(data);
-    };
-    fetchData();
-  }, []);
+    } catch (error) {
+      console.error('Error fetching transactions:', error);
+    }
+  };
 
   const handleSearch = (searchTerm) => {
     const filtered = transactions.filter((transaction) =>
@@ -28,7 +36,6 @@ const App = () => {
 
   const handleAddTransaction = (newTransaction) => {
     setTransactions((prevTransactions) => [...prevTransactions, newTransaction]);
-    // Optionally, you can send the newTransaction to the backend API here (Bonus Deliverables).
   };
 
   return (

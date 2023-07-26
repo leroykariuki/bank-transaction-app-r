@@ -1,6 +1,6 @@
 // src/api.js
 
-const BASE_URL = 'http://localhost:8001';
+const BASE_URL = 'http://localhost:3001';
 
 export const fetchTransactions = async () => {
   try {
